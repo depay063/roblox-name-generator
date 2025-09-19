@@ -12,11 +12,11 @@
       --muted:#9aa1a6;
       --accent:#ffffff;
       --glass: rgba(255,255,255,0.03);
-      --radius:16px;
+      --radius:14px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;}
+    html,body{height:100%}
     body{
       margin:0;
       background: radial-gradient(1200px 600px at 10% 10%, rgba(255,255,255,0.03), transparent),
@@ -28,93 +28,43 @@
       overflow:hidden;
     }
 
-    /* Layout */
-    .wrap{
-      min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:48px;
-    }
+    .wrap{min-height:100vh;display:grid;place-items:center;padding:28px}
 
-    .card{
-      width:100%;
-      max-width:920px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.03);
-      position:relative;
-      overflow:hidden;
-    }
+    .card{width:100%;max-width:980px;border-radius:16px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 14px 40px rgba(0,0,0,0.6)}
 
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .title{display:flex;flex-direction:column}
-    h1{margin:0;font-weight:700;font-size:20px;letter-spacing:0.2px}
+    h1{margin:0;font-weight:700;font-size:20px}
     p.lead{margin:4px 0 0;color:var(--muted);font-size:13px}
 
-    .controls{
-      display:flex;gap:12px;align-items:center
-    }
+    .controls{display:flex;gap:10px}
+    .btn{appearance:none;border:0;padding:10px 12px;border-radius:10px;background:transparent;color:var(--accent);cursor:pointer;font-weight:600;border:1px solid rgba(255,255,255,0.06);backdrop-filter:blur(6px)}
+    .btn.primary{background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));box-shadow:0 6px 18px rgba(0,0,0,0.45)}
 
-    .btn{
-      appearance:none;border:0;padding:10px 14px;border-radius:12px;background:transparent;color:var(--accent);cursor:pointer;
-      font-weight:600;letter-spacing:0.2px;border:1px solid rgba(255,255,255,0.06);
-      transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
-      backdrop-filter: blur(6px);
-    }
-    .btn:active{transform:translateY(1px) scale(.998)}
-    .btn.primary{background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+    .tabs{display:flex;gap:8px;margin-top:18px}
+    .tab{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+    .tab.active{background:rgba(255,255,255,0.02)}
 
-    main{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:22px}
+    main{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .panel{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);border:1px solid rgba(255,255,255,0.02)}
 
-    .panel{
-      padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.012), transparent);border:1px solid rgba(255,255,255,0.02);
-    }
-
-    .preview{
-      display:flex;flex-direction:column;gap:12px;align-items:flex-start;
-    }
-
-    .card-row{display:flex;gap:12px;align-items:center}
-
-    .output{
-      width:100%;padding:16px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02);
-      font-family:monospace;font-weight:700;font-size:18px;letter-spacing:0.6px;color:var(--accent);
-      display:flex;align-items:center;justify-content:space-between;gap:12px
-    }
-
+    .output{width:100%;padding:14px;border-radius:10px;background:rgba(255,255,255,0.02);font-family:monospace;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:space-between}
     .small{font-size:12px;color:var(--muted)}
 
-    .meta{display:flex;gap:8px;align-items:center}
+    .side{display:flex;flex-direction:column;gap:12px}
 
-    .copy-btn{padding:8px 10px;border-radius:10px;border:0;background:transparent;color:var(--muted);cursor:pointer}
-    .copy-btn:hover{color:var(--accent)}
+    footer{margin-top:14px;color:var(--muted);font-size:12px}
 
-    .note{margin-top:8px;color:var(--muted);font-size:12px}
+    .modal{position:fixed;left:0;top:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+    .modal-card{width:380px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#0e0e0e,#0b0b0b);border:1px solid rgba(255,255,255,0.03)}
+    .field{display:flex;flex-direction:column;margin-top:10px}
+    input[type=text],input[type=password]{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent);outline:none}
 
-    /* Interactive controls */
-    .option-row{display:flex;gap:12px;align-items:center;margin-top:8px}
-    label.switch{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
-    input[type=range]{width:120px}
+    .history{white-space:pre-wrap;font-family:monospace;background:rgba(255,255,255,0.01);padding:12px;border-radius:8px;max-height:420px;overflow:auto;border:1px solid rgba(255,255,255,0.02)}
 
-    /* Right column */
-    .side{display:flex;flex-direction:column;gap:14px}
+    .cursor-glow{position:fixed;left:0;top:0;width:36px;height:36px;border-radius:50%;pointer-events:none;mix-blend-mode:screen;transform:translate(-50%,-50%);transition:width .12s,height .12s,opacity .12s}
 
-    .panel h3{margin:0;font-size:13px}
-
-    footer{margin-top:20px;color:var(--muted);font-size:12px}
-
-    /* Cursor effect */
-    .cursor-glow{position:fixed;left:0;top:0;width:36px;height:36px;border-radius:50%;pointer-events:none;mix-blend-mode:screen;transform:translate(-50%,-50%);transition:width .12s ease,height .12s ease,opacity .12s ease}
-
-    /* small responsive */
-    @media (max-width:880px){main{grid-template-columns:1fr}.side{order:2}}
-
-    /* micro-interactions */
-    .btn.ripple{position:relative;overflow:hidden}
-    .btn.ripple:after{content:'';position:absolute;border-radius:50%;transform:scale(0);opacity:.5;pointer-events:none}
-
+    @media (max-width:920px){main{grid-template-columns:1fr}.side{order:2}}
   </style>
 </head>
 <body>
@@ -123,50 +73,45 @@
       <header>
         <div class="title">
           <h1>Roblox Name Generator</h1>
-          <p class="lead">Simple, English-friendly usernames &amp; secure passwords — dark minimalist UI.</p>
+          <p class="lead">Simple generator + history. Login required to save and view your generated entries.</p>
         </div>
-        <div class="controls">
-          <button class="btn primary" id="generateBtn">Gerar</button>
-          <button class="btn" id="randomizeBtn">Randomize Seed</button>
+        <div class="controls" id="authControls">
+          <div class="small" id="loggedAs">—</div>
+          <button class="btn" id="openLogin">Login / Register</button>
         </div>
       </header>
 
+      <div class="tabs" role="tablist">
+        <div class="tab active" data-tab="generator">Generator</div>
+        <div class="tab" data-tab="history">History</div>
+      </div>
+
       <main>
-        <section class="panel preview">
-          <div>
-            <div class="small">Usuário</div>
-            <div class="output" id="usernameOutput">—</div>
+        <section class="panel" id="generatorPanel">
+          <div style="margin-bottom:10px"><div class="small">Usuário</div>
+            <div class="output" id="usernameOutput">—</div></div>
+
+          <div style="margin-bottom:10px"><div class="small">Senha</div>
+            <div class="output" id="passwordOutput">—</div></div>
+
+          <div style="display:flex;gap:8px;align-items:center;margin-top:6px">
+            <button class="btn primary" id="generateBtn">Gerar</button>
+            <button class="btn" id="saveBtn">Salvar na minha conta</button>
+            <button class="btn" id="randomizeBtn">Randomize Seed</button>
           </div>
 
-          <div>
-            <div class="small">Senha</div>
-            <div class="output" id="passwordOutput">—</div>
-          </div>
+          <div class="small" style="margin-top:12px">Ao salvar, a entrada ficará disponível na aba <strong>History</strong> e mostrada neste formato:</div>
+          <div class="small monospace" style="margin-top:8px">nome:senha<br>--------------<br>nome:senha<br>--------------</div>
 
-          <div class="card-row">
-            <button class="btn ripple" id="copyUser">Copiar Usuário</button>
-            <button class="btn ripple" id="copyPass">Copiar Senha</button>
-            <div class="meta small">10% de chance de o usuário ter 3 números.</div>
-          </div>
-
-          <div class="note">Nomes gerados são aleatórios e simples — projetados para evitar palavras ofensivas ao usar apenas letras ou combinações inofensivas.</div>
+          <div class="note" style="margin-top:12px;color:var(--muted)">Nomes gerados são simples e em inglês. Este sistema de login é local (localStorage) — não use credenciais sensíveis.</div>
         </section>
 
         <aside class="side">
           <div class="panel">
             <h3>Configurações</h3>
-            <div class="option-row">
-              <label class="switch">Include digits in username <input type="checkbox" id="allowDigits" checked></label>
-            </div>
-            <div class="option-row">
-              <label class="switch">Upper &amp; lower mix <input type="checkbox" id="mixCase" checked></label>
-            </div>
-            <div style="margin-top:12px" class="small">Password format: <strong>3 words</strong> (random lower/upper) + <strong>6 chars</strong> (numbers/symbols).</div>
-          </div>
-
-          <div class="panel">
-            <h3>Sobre</h3>
-            <div class="small">Sem emojis nas abas. Interface minimalista em preto e branco com efeitos sutis de mouse. Nomes simples em inglês sem palavras sensíveis.</div>
+            <div style="margin-top:8px" class="small">Include digits in username <input type="checkbox" id="allowDigits" checked></div>
+            <div style="margin-top:6px" class="small">Upper &amp; lower mix <input type="checkbox" id="mixCase" checked></div>
+            <div style="margin-top:8px" class="small">Password format: <strong>3 words</strong> + <strong>6 chars</strong>.</div>
           </div>
 
           <div class="panel">
@@ -174,161 +119,150 @@
             <div class="small" id="seedDisplay">seed: —</div>
             <div style="margin-top:8px"><button class="btn" id="copySeed">Copiar Seed</button></div>
           </div>
+
+          <div class="panel" id="historyQuick">
+            <h3>Últimas (rápido)</h3>
+            <div id="lastQuick" class="small">—</div>
+          </div>
         </aside>
       </main>
 
-      <footer>Feito com ❤️ — ajustes e personalizações disponíveis sob pedido.</footer>
+      <div id="historyPanel" style="display:none;margin-top:14px">
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h3>History</h3>
+            <div style="display:flex;gap:8px">
+              <button class="btn" id="exportBtn">Export</button>
+              <button class="btn" id="clearBtn">Clear</button>
+            </div>
+          </div>
+
+          <div class="history" id="historyContent">(No entries yet)</div>
+        </div>
+      </div>
+
+      <footer>Feito com atenção — login local + histórico salvo no seu navegador.</footer>
     </div>
   </div>
 
   <div class="cursor-glow" id="cursor"></div>
 
+  <div id="loginModal" class="modal" style="display:none">
+    <div class="modal-card">
+      <h3 id="modalTitle">Login / Register</h3>
+      <div class="field"><label class="small">Usuário</label><input type="text" id="authUser" placeholder="username"></div>
+      <div class="field"><label class="small">Senha</label><input type="password" id="authPass" placeholder="password"></div>
+      <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+        <button class="btn" id="closeModal">Cancelar</button>
+        <button class="btn primary" id="doLogin">Login</button>
+        <button class="btn" id="doRegister">Registrar</button>
+      </div>
+      <div class="small" style="margin-top:10px;color:var(--muted)">Aviso: credenciais ficam localmente no seu navegador (localStorage). Não utilize senhas reais.</div>
+    </div>
+  </div>
+
   <script>
-    // --- Utility functions ---
-    function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
-    function pick(arr){return arr[randInt(0,arr.length-1)]}
+    function nowText(){ return new Date().toLocaleString(); }
+    function saveUsers(users){ localStorage.setItem('rbg_users', JSON.stringify(users)); }
+    function loadUsers(){ return JSON.parse(localStorage.getItem('rbg_users')||'{}'); }
 
-    // safe wordlist (non-offensive, short words)
-    const WORDS = ["sun","river","night","sky","stone","leaf","echo","wind","flame","ice","storm","void","lucky","iron","amber","orbit","nova","pixel","quiet","shadow","silent","breeze","mist","sage","dawn"];
-
-    // seed for reproducibility optional
-    let seed = Date.now();
-    function setSeed(s){seed = s; document.getElementById('seedDisplay').innerText = 'seed: '+seed}
-    setSeed(seed);
-
-    // pseudo-random with seed (xorshift32)
-    function xorshift32(s){
-      let x = s >>> 0;
-      return function(){
-        x ^= x << 13; x >>>= 0;
-        x ^= x >>> 17; x >>>= 0;
-        x ^= x << 5; x >>>= 0;
-        return (x >>> 0) / 4294967296;
+    async function hashStr(str){
+      if(window.crypto && crypto.subtle){
+        const buf = new TextEncoder().encode(str);
+        const hash = await crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
       }
+      return str;
     }
 
+    let currentUser = localStorage.getItem('rbg_currentUser') || null;
+    const loggedAsEl = document.getElementById('loggedAs');
+    const openLogin = document.getElementById('openLogin');
+    const loginModal = document.getElementById('loginModal');
+    const authUser = document.getElementById('authUser');
+    const authPass = document.getElementById('authPass');
+    const doLogin = document.getElementById('doLogin');
+    const doRegister = document.getElementById('doRegister');
+    const closeModal = document.getElementById('closeModal');
+
+    function updateAuthDisplay(){
+      if(currentUser){
+        loggedAsEl.innerText = 'Logged: ' + currentUser;
+        openLogin.innerText = 'Logout';
+      } else { loggedAsEl.innerText = 'Not logged'; openLogin.innerText = 'Login / Register'; }
+    }
+    updateAuthDisplay();
+
+    openLogin.addEventListener('click', ()=>{
+      if(currentUser){
+        currentUser = null; localStorage.removeItem('rbg_currentUser'); updateAuthDisplay(); flashText('Logged out'); renderHistory();
+      } else { loginModal.style.display='flex'; authUser.value=''; authPass.value=''; }
+    });
+
+    closeModal.addEventListener('click', ()=>{ loginModal.style.display='none'; });
+
+    doRegister.addEventListener('click', async ()=>{
+      const user = authUser.value.trim(); const pass = authPass.value;
+      if(!user || !pass){ alert('Enter username and password'); return; }
+      const users = loadUsers();
+      if(users[user]){ alert('User exists'); return; }
+      users[user] = await hashStr(pass);
+      saveUsers(users);
+      flashText('Registered — you can now login');
+    });
+
+    doLogin.addEventListener('click', async ()=>{
+      const user = authUser.value.trim(); const pass = authPass.value;
+      if(!user || !pass){ alert('Enter username and password'); return; }
+      const users = loadUsers();
+      const hashed = await hashStr(pass);
+      if(users[user] && users[user] === hashed){ currentUser = user; localStorage.setItem('rbg_currentUser', user); flashText('Logged in as '+user); loginModal.style.display='none'; updateAuthDisplay(); renderHistory(); }
+      else alert('Invalid credentials');
+    });
+
+    const WORDS = ["sun","river","night","sky","stone","leaf","echo","wind","flame","ice","storm","void","lucky","iron","amber","orbit","nova","pixel","quiet","shadow","silent","breeze","mist","sage","dawn"];
+    let seed = Date.now(); function setSeed(s){ seed = s; const el = document.getElementById('seedDisplay'); if(el) el.innerText = 'seed: '+seed }
+    setSeed(seed);
+    function xorshift32(s){ let x = s>>>0; return function(){ x ^= x << 13; x >>>= 0; x ^= x >>> 17; x >>>= 0; x ^= x << 5; x >>>= 0; return (x>>>0)/4294967296; }}
     let rng = xorshift32(seed);
-
-    function reseed(){seed = Math.floor(Date.now() + Math.random()*9999); rng = xorshift32(seed); setSeed(seed)}
-
-    function randomChar(){
-      const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-      return chars[Math.floor(rng()*chars.length)];
-    }
+    function reseed(){ seed = Math.floor(Date.now() + Math.random()*9999); rng = xorshift32(seed); setSeed(seed) }
 
     function usernameGenerator(){
-      const allowDigits = document.getElementById('allowDigits').checked;
-      const mixCase = document.getElementById('mixCase').checked;
-      // 10% chance of having 3 numbers
-      const chance = rng();
-      let username = '';
+      const allowDigits = document.getElementById('allowDigits')?.checked ?? true;
+      const mixCase = document.getElementById('mixCase')?.checked ?? true;
+      const chance = rng(); let username='';
       if(allowDigits && chance < 0.10){
-        // 3 letters + 3 digits
-        for(let i=0;i<3;i++){
-          let c = String.fromCharCode(97 + Math.floor(rng()*26));
-          if(mixCase && rng() > 0.5) c = c.toUpperCase();
-          username += c;
-        }
-        for(let i=0;i<3;i++) username += String.fromCharCode(48 + Math.floor(rng()*10));
+        for(let i=0;i<3;i++){ let c = String.fromCharCode(97 + Math.floor(rng()*26)); if(mixCase && rng()>0.5) c=c.toUpperCase(); username+=c }
+        for(let i=0;i<3;i++) username+=String.fromCharCode(48 + Math.floor(rng()*10));
       } else {
-        // 6 letters
-        for(let i=0;i<6;i++){
-          let c = String.fromCharCode(97 + Math.floor(rng()*26));
-          if(mixCase && rng() > 0.5) c = c.toUpperCase();
-          username += c;
-        }
+        for(let i=0;i<6;i++){ let c = String.fromCharCode(97 + Math.floor(rng()*26)); if(mixCase && rng()>0.5) c=c.toUpperCase(); username+=c }
       }
-      // safety: ensure only letters and digits
-      username = username.replace(/[^A-Za-z0-9]/g, 'A');
-      return username;
+      return username.replace(/[^A-Za-z0-9]/g,'A');
     }
 
     function passwordGenerator(){
-      // 3 words (each randomly upper or lower), concatenated, + 6 chars (numbers or symbols)
-      let used = new Set();
-      let words = [];
+      let used = new Set(); let words = [];
       for(let i=0;i<3;i++){
         let w;
-        // pick a word not previously used, up to some tries
         for(let t=0;t<10;t++){
-          w = WORDS[Math.floor(rng()*WORDS.length)];
-          if(!used.has(w)) break;
+          w = WORDS[Math.floor(rng()*WORDS.length)]; if(!used.has(w)) break;
         }
         used.add(w);
         if(rng()>0.5) w = w.toUpperCase(); else w = w.toLowerCase();
         words.push(w);
       }
-      let suffixChars = '0123456789!@#$%&*';
-      let suffix = '';
+      let suffixChars = '0123456789!@#$%&*'; let suffix = '';
       for(let i=0;i<6;i++) suffix += suffixChars[Math.floor(rng()*suffixChars.length)];
       return words.join('') + suffix;
     }
 
-    // DOM wiring
     const usernameOutput = document.getElementById('usernameOutput');
     const passwordOutput = document.getElementById('passwordOutput');
-    const generateBtn = document.getElementById('generateBtn');
-    const randomizeBtn = document.getElementById('randomizeBtn');
+    const genBtn = document.getElementById('generateBtn');
+    const randBtn = document.getElementById('randomizeBtn');
+    if(genBtn) genBtn.addEventListener('click', ()=>{ generateAll(); });
+    if(randBtn) randBtn.addEventListener('click', ()=>{ reseed(); generateAll(); });
 
     function generateAll(){
-      const user = usernameGenerator();
-      const pass = passwordGenerator();
-      usernameOutput.innerText = user;
-      passwordOutput.innerText = pass;
-    }
-
-    generateBtn.addEventListener('click', () => { generateAll(); buttonRipple(event); });
-    randomizeBtn.addEventListener('click', () => { reseed(); generateAll(); });
-
-    document.getElementById('copyUser').addEventListener('click', async () => {
-      try{ await navigator.clipboard.writeText(usernameOutput.innerText); flashText('Usuário copiado'); }catch(e){alert('Não foi possível copiar')}
-    });
-    document.getElementById('copyPass').addEventListener('click', async () => {
-      try{ await navigator.clipboard.writeText(passwordOutput.innerText); flashText('Senha copiada'); }catch(e){alert('Não foi possível copiar')}
-    });
-    document.getElementById('copySeed').addEventListener('click', async () => {
-      try{ await navigator.clipboard.writeText(seed.toString()); flashText('Seed copiada'); }catch(e){alert('Não foi possível copiar')}
-    });
-
-    function flashText(msg){
-      const el = document.createElement('div');
-      el.style.position='fixed';el.style.left='50%';el.style.top='12%';el.style.transform='translateX(-50%)';el.style.background='rgba(255,255,255,0.06)';el.style.padding='8px 12px';el.style.borderRadius='10px';el.style.fontSize='13px';el.style.zIndex=9999;el.innerText=msg;document.body.appendChild(el);
-      setTimeout(()=>{el.style.transition='opacity .4s';el.style.opacity=0;setTimeout(()=>el.remove(),420)},900);
-    }
-
-    // tiny ripple effect
-    function buttonRipple(e){
-      const btn = e.currentTarget || e.target;
-      const circle = document.createElement('span');
-      const d = Math.max(btn.clientWidth, btn.clientHeight);
-      circle.style.width = circle.style.height = d+'px';
-      circle.style.position = 'absolute';
-      circle.style.borderRadius='50%';
-      circle.style.left = e.offsetX - d/2 + 'px';
-      circle.style.top = e.offsetY - d/2 + 'px';
-      circle.style.background = 'rgba(255,255,255,0.06)';
-      circle.style.pointerEvents='none';
-      circle.style.transition='transform .6s ease, opacity .6s ease';
-      circle.style.transform='scale(0)';
-      btn.appendChild(circle);
-      requestAnimationFrame(()=>{circle.style.transform='scale(1)';circle.style.opacity=0});
-      setTimeout(()=>circle.remove(),700);
-    }
-
-    // cursor glow follow
-    const cursor = document.getElementById('cursor');
-    let cx = window.innerWidth/2, cy = window.innerHeight/2;
-    document.addEventListener('mousemove', (ev)=>{
-      cx = ev.clientX; cy = ev.clientY; cursor.style.left = cx+'px'; cursor.style.top = cy+'px'; cursor.style.width='36px'; cursor.style.height='36px'; cursor.style.opacity=1;
-    });
-    document.addEventListener('mousedown', ()=>{ cursor.style.width='80px'; cursor.style.height='80px'; cursor.style.opacity=0.16; });
-    document.addEventListener('mouseup', ()=>{ cursor.style.width='36px'; cursor.style.height='36px'; cursor.style.opacity=1; });
-
-    // initial
-    generateAll();
-
-    // ensure no accidental emojis in title/tab
-    document.title = 'Roblox Name Generator';
-  </script>
-</body>
-</html>
+      const u = usernameGenerator();
+      const p = passwordGenerator();
